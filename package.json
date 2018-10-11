@@ -1,0 +1,32 @@
+{
+  "name": "Showapp-Prueba",
+  "version": "1.0.0",
+  "description": "Fetch movies from MovieDB and manages it locally &lt;3",
+  "main": "index.js",
+  "dependencies": {
+    "next": "^7.0.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.4.1"
+  },
+  "scripts": {
+    "start": "next start",
+    "build": "next build",
+    "dev": "next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CamiloTD/Showapp-Prueba.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CamiloTD/Showapp-Prueba/issues"
+  },
+  "homepage": "https://github.com/CamiloTD/Showapp-Prueba#readme"
+}
