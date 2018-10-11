@@ -8,7 +8,10 @@ export default class MainPage extends Component {
     render () {
 
         return (
-            <Layout active="Movies"></Layout>
+            <Layout
+                active="Movies"
+                description="Descubra nuevas películas y programas de televisión"
+            ></Layout>
         );
     }
 

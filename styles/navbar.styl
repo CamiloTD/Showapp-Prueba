@@ -1,0 +1,27 @@
+@require './theme.styl'
+
+.navbar-main
+    display: grid
+    grid-template-columns: 1fr 1fr
+    align-items: center
+    padding-left: 42px
+
+    .nav
+        display: grid
+        align-items: center
+        margin-right: 52px
+        justify-content: right
+        justify-items: center
+
+        .item
+            font-family: $MainFont
+            color: $FontColor
+            font-weight: bold
+            font-size: 16px
+            cursor: pointer
+        
+        .active
+            color: $MainColor
+            border-bottom: 2px solid $MainColor
+            margin-top: 6px
+            padding-bottom: 5px

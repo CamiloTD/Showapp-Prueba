@@ -1,13 +1,12 @@
-import { MainStyle, InputStyle } from "../search/styles";
+import '../../styles/search.styl';
 import Icon from '../icons';
 
 export default () => (
-    <div style={ MainStyle }>
+    <div className="search-main">
         <Icon.search />
         <input
             type="text"
             placeholder="Search for a movie, series and videos"
-            style={ InputStyle }
         />
     </div>
 )

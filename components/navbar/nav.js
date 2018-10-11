@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import '../../styles/navbar.styl'
 
 export default ({ items = [], style, active }) => (
-    <div style={style}>{
+    <div style={style} className="nav">{
         items.map((item) => (
             <Link href={item.href}>
-                <div style={item.name === active? { ...style.Item, ...style.Item.Active} : { ...style.Item }}>
+                <div className={ item.name == active? "item active" : "item" }>
                     { item.name }
                 </div>
             </Link>
