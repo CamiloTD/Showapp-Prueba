@@ -42,11 +42,12 @@ export default class Body extends Component {
                     />
                 </div>
 
-                <Pagination
-                    buttons={5}
-                    size={paginationSize}
-                    onChange={onPageChange}
-                />
+                { paginationSize > 1? 
+                    <Pagination
+                        buttons={paginationSize > 5? 5 : paginationSize}
+                        size={paginationSize}
+                        onChange={onPageChange}
+                    /> : undefined }
 
                 <div className="content">
                     {

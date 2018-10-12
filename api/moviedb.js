@@ -14,24 +14,30 @@ export default (language = "es-ES") => {
         })).data;
     
     const movieGenres = () => GET('genre/movie/list');
-    const TVGenres    = () => GET('genre/tv/list');
+    const seriesGenres    = () => GET('genre/tv/list');
 
     const popularMovies = (filter) => GET('movie/popular', filter);
-    const popularTV = () => GET('tv/popular');
+    const popularSeries = (filter) => GET('tv/popular', filter);
 
     const movie = (id) => GET(`movie/${id}`);
     const movieVideos = (id) => movie(`${id}/videos`);
+
+    const serie = (id) => GET(`tv/${id}`);
+    const serieVideos = (id) => serie(`${id}/videos`);
 
     return {
         GET,
         
         movieGenres,
-        TVGenres,
+        seriesGenres,
 
         popularMovies,
-        popularTV,
+        popularSeries,
 
         movie,
-        movieVideos
+        movieVideos,
+
+        serie,
+        serieVideos
     };
 }

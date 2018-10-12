@@ -22,6 +22,11 @@ export default class Pagination extends Component {
         let start = value <= middle? 1 : Math.floor(value - middle) + 1;
         let end = value <= middle? buttons : buttons + Math.ceil((value - middle)) - 1;
 
+        if(end >= size) { 
+            start -= (end - size);
+            end = size;
+        }
+
         for(let i=start;i<=end;i++) {
             let n = i;
             items.push(<div

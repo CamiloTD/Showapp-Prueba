@@ -6,9 +6,9 @@ export default ({ video, hideModal }) => (
             <iframe
                 className="video"
                 src={ "https://www.youtube.com/embed/" + video }
-                frameborder="0"
+                frameBorder="0"
                 allow="autoplay; encrypted-media"
-                allowfullscreen
+                allowFullScreen
             ></iframe>
         </div>
     </div>
