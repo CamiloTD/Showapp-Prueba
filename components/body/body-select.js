@@ -40,7 +40,7 @@ export default class BodySelect extends Component {
                 }
 
                 { open &&
-                    <div className="options">
+                    <div className={ Object.keys(data).length > 2? "options" : "options small" }>
                         {
                             (() => {
                                 let x = [];
