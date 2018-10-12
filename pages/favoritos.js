@@ -112,9 +112,10 @@ export default class MainPage extends Component {
         
         let X = [];
 
-        for(let i in _movies)
+        _movies.forEach((movie, i) => {
             if(_movies[i] && _movies[i].id !== id)
                 X.push(_movies[i]);
+        });
         
         X.totalPages = Math.ceil((X.length) / 20);
 
