@@ -16,7 +16,7 @@ export default (language = "es-ES") => {
     const movieGenres = () => GET('genre/movie/list');
     const TVGenres    = () => GET('genre/tv/list');
 
-    const popularMovies = () => GET('movie/popular');
+    const popularMovies = (filter) => GET('movie/popular', filter);
     const popularTV = () => GET('tv/popular');
 
     const movie = (id) => GET(`movie/${id}`);

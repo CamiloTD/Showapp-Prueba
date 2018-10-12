@@ -35,7 +35,7 @@ export default class BodySelect extends Component {
 
                 {
                     active?
-                        <Icon.close onClick ={ (e) => { this.change(); e.stopPropagation() } } /> :
+                        <Icon.close onClick ={ (e) => { this.change(); e.stopPropagation(); onChange && onChange() } } /> :
                         <Icon.expand onClick={ () => this.toggle(true) }/>
                 }
 

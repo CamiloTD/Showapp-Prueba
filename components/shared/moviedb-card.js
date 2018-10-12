@@ -13,7 +13,7 @@ export default ({ picture, title, rating, duration, release, genres, description
             </div>
 
             <div class="card-details">
-                { duration } | { release } | { genres }
+                { release } | { genres }
             </div>
 
             <div class="card-description">{ description }</div>

@@ -26,7 +26,7 @@ export default ({
     heart: (props) => (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props}>
             <g opacity="0.54">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8C11.33 6.268 9.453 5 7.5 5C4.957 5 3 6.932 3 9.5C3 13.029 6.793 15.758 12 21C17.207 15.758 21 13.029 21 9.5C21 6.932 19.043 5 16.5 5C14.545 5 12.67 6.268 12 8Z" fill={ props.fill || "#87969C" }/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M12 8C11.33 6.268 9.453 5 7.5 5C4.957 5 3 6.932 3 9.5C3 13.029 6.793 15.758 12 21C17.207 15.758 21 13.029 21 9.5C21 6.932 19.043 5 16.5 5C14.545 5 12.67 6.268 12 8Z" fill={ props.fill || "#87969C" }/>
             </g>
         </svg>
     )

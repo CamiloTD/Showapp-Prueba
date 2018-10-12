@@ -1,0 +1,29 @@
+@require './theme.styl'
+
+.pagination-main
+    display: grid
+    width: 100%
+    align-items: center
+    justify-content: center
+    justify-items: center
+
+    .p-item
+        align-items: center
+        justify-items: center
+        border-radius: 4px
+        cursor: pointer
+        width: 32px
+        height: 32px
+        display: grid
+        border: 1px solid $BodyInputBorderColor
+        font-family: $MainFont
+        font-weight: bold
+        color: $SecondaryColor
+
+    .active
+        background: $BodyInputBorderColor
+        color: $LightColor
+    
+    .scroll
+        color: $BodyInputBorderColor
+        box-shadow: 0px 0px 2px rgba(0,0,0,.25)

@@ -12,7 +12,13 @@ import '../../styles/layout.styl';
 export default class Layout extends Component {
     
     render () {
-        let { active, description, genres, content } = this.props;
+        let {
+            active, description, genres,
+            content,
+            onPageChange, paginationSize,
+            onGenreChange, onYearChange,
+            onSearchChange
+        } = this.props;
 
         return (
             <div className="layout-main">
@@ -22,8 +28,18 @@ export default class Layout extends Component {
                 </Head>
 
                 <Navbar menuItems={navbarItems} active={active} />
-                <Search />
-                <Body description={description} genres={genres} content={content} />
+                <Search onChange={onSearchChange}/>
+                <Body
+                    description={description}
+                    genres={genres}
+                    content={content}
+
+                    onPageChange={ onPageChange }
+                    paginationSize={ paginationSize }
+
+                    onGenreChange={ onGenreChange }
+                    onYearChange={ onYearChange }
+                />
             </div>
         );
     }
