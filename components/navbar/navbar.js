@@ -1,8 +1,6 @@
 import Nav from './nav';
 import Logo from './logo';
 
-import MediaQuery from 'react-responsive';
-
 export default ({ menuItems, active }) => (
     <div className="navbar-main">
         <Logo />

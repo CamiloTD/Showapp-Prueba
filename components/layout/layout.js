@@ -12,7 +12,7 @@ import '../../styles/layout.styl';
 export default class Layout extends Component {
     
     render () {
-        let { active, description } = this.props;
+        let { active, description, genres, content } = this.props;
 
         return (
             <div className="layout-main">
@@ -23,7 +23,7 @@ export default class Layout extends Component {
 
                 <Navbar menuItems={navbarItems} active={active} />
                 <Search />
-                <Body description={description} />
+                <Body description={description} genres={genres} content={content} />
             </div>
         );
     }

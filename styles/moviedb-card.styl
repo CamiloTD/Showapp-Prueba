@@ -1,0 +1,79 @@
+@require './theme.styl'
+
+.moviedb-card
+    display: grid
+    grid-template-columns: 136px auto
+    min-width: 460px
+    height: 204px
+    box-shadow: 0px 0px 8px rgba(130,130,130,.5)
+    border-radius: 4px
+    font-family: $MainFont
+
+    .picture
+        background-attachment: fixed
+    
+    .details
+        display: grid
+        grid-template-rows: 41px 19px auto 45px
+
+        .card-header
+            display: grid
+            grid-template-columns: auto 30px
+            font-size: 14px
+            font-weight: Bold
+            color: $FontColor
+
+            .title
+                margin-left: 24px
+                margin-top: 11px
+            
+            .rating
+                margin-right: 10px
+                margin-top: 11px
+        
+        .card-details
+            text-align: left
+            font-size: 11px
+            padding-left: 28px
+            padding-right: 43px
+            color: $SecondaryColor
+
+        .card-description
+            display: grid
+            align-items: center
+            color: $FontColor
+            font-size: 12px
+            margin-left: 24px 
+        
+        .card-actions
+            display: grid
+            grid-template-columns: 0.9fr 1fr
+            font-family: $MainFont
+            align-content: center
+            margin-bottom: 19px
+
+            button
+                background: transparent
+                color: $LightColor
+                border: 1px solid $LightColor
+                border-radius: 3px
+                font-size: 12px
+                width: 87px
+                height: 27px
+                margin-left: 24px
+                pointer-events:none
+            
+            .trailer-active
+                color: $MainColor
+                border: 1px solid $MainColor
+                pointer-events: all
+                cursor: pointer
+            
+            .add-fav
+                display: grid
+                grid-template-columns: auto 29px
+                justify-items: right
+                align-items: center
+                color: $LightColor
+                font-size: 12px
+                margin-right: 34px
