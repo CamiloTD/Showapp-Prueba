@@ -17,7 +17,8 @@ export default class Layout extends Component {
             content,
             onPageChange, paginationSize,
             onGenreChange, onYearChange,
-            onSearchChange
+            onSearchChange,
+            onFavorite
         } = this.props;
 
         return (
@@ -39,6 +40,8 @@ export default class Layout extends Component {
 
                     onGenreChange={ onGenreChange }
                     onYearChange={ onYearChange }
+
+                    onFavorite={ onFavorite }
                 />
             </div>
         );

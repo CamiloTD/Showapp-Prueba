@@ -30,6 +30,8 @@ export default class Pagination extends Component {
                     "p-item num active" :
                     "p-item num"
                 }
+
+                key={ i }
                 onClick={ () => this.setValue(n) }>{ i }</div>);
         }
 

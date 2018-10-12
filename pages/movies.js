@@ -27,7 +27,7 @@ async function getMoviesFrom (filter, page = 1) {
         let _results = trailer.results;
 
         if(_results && _results[0])
-            movie.trailer = `https://youtube.com/watch?v=${_results[0].key}`;
+            movie.trailer = _results[0].key;
     }
 
     return _movies.results;
@@ -42,7 +42,8 @@ export default class MainPage extends Component {
         this.state = {
             genres: props.genres,
             raw_content: props.raw_content,
-            full_movies: props.full_movies
+            full_movies: props.full_movies,
+            favs: props.favs
         };
     }
 
@@ -74,9 +75,20 @@ export default class MainPage extends Component {
         this.setState({ full_movies: _movies, filter });
     }
 
+    setFavorite(id) {
+        let { favs } = this.state;
+
+        if(favs.movies[id]) delete favs.movies[id];
+        else favs.movies[id] = true;
+
+        localStorage.setItem("favs", JSON.stringify(favs));
+
+        this.setState({ favs: { movies: favs.movies }})
+    }
+
     getContentFromMovies (full_movies) {
         let movies = [];
-        let { genres } = this.state;
+        let { genres, favs } = this.state;
 
         for(let i=0, movie;movie=full_movies[i++];) {
             let movie_genres = movie.genre_ids.map((id) => genres[id]).join(", ");
@@ -87,6 +99,7 @@ export default class MainPage extends Component {
                  +  " y" + movie_genres.substring(movie_genres.lastIndexOf(", ") + 1);
 
             movies.push({
+                id: movie.id,
                 title: movie.title,
                 duration: duration,
                 rating: movie.vote_average,
@@ -94,8 +107,8 @@ export default class MainPage extends Component {
                 description: movie.overview.length < 300? movie.overview: movie.overview.substring(0, 200) + "...",
                 release: movie.release_date,
                 genres: movie_genres,
-                isFavorite: false,
-                hasTrailer: movie.trailer !== undefined
+                isFavorite: favs.movies[movie.id],
+                trailer: movie.trailer
             });
         }
 
@@ -105,11 +118,13 @@ export default class MainPage extends Component {
     render () {
         let { genres, full_movies } = this.state;
         let movies = this.getContentFromMovies(full_movies);
+        let resetCat = typeof filter === "string";
 
         return (
             <Layout
                 active="Movies"
                 description="Descubra nuevas películas y programas de televisión"
+
                 genres={ genres }
                 content={ movies }
 
@@ -119,16 +134,27 @@ export default class MainPage extends Component {
                 onGenreChange={ (id) => this.setContent(1, id? { genre: id } : { genre: null }) }
                 onYearChange={ (id, y) => this.setContent(1 , y? { year: y } : { year: null }) }
 
-                onSearchChange={ (name) => {
+                onSearchChange={(name) => {
                     this.setContent(1, name);
                 }}
+
+                onFavorite={ (id) => this.setFavorite(id) }
+
+                reset={ resetCat }
             />
         );
 
     }
 
+    componentDidMount () {
+        const favs = JSON.parse(localStorage.getItem("favs") || "{ movies: {}, series: {} }");
+
+        this.setState({ favs });
+    }
+
     static async getInitialProps (props) {
         const API = MovieDB("es-ES");
+
         const _genres = (await API.movieGenres()).genres || [];
         
         const genres = {};
@@ -139,7 +165,8 @@ export default class MainPage extends Component {
         return {
             genres: genres || {},
             full_movies: movies,
-            meta: movies.meta
+            meta: movies.meta,
+            favs: { movies: {}, series: {} }
         };
     }
 
